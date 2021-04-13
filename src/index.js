@@ -1,44 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Note from "./Components/Note";
 import NoteForm from "./Components/NoteForm";
 import "./App.css";
 
-class App extends React.Component {
-  state = {
-    notes: [
-      { id: 1, title: "titre 1", text: "texte 1" },
-      { id: 2, title: "titre 2", text: "texte 2" },
-      { id: 3, title: "titre 3", text: "texte 3" },
-    ],
+const App = () => {
+  const [notes, setNotes] = useState([
+    {
+      id: 1,
+      title: "Regarder des tutos sur Redux",
+      text: "Redux c'est dur, il faut regarder des tutos",
+    },
+    {
+      id: 2,
+      title: "Faire la spec",
+      text: "Il faut faire la spec pour Jeudi (contacter Natacha",
+    },
+    {
+      id: 3,
+      title: "Faire les maquettes",
+      text: "Il faut aussi faire les maquettes",
+    },
+  ]);
+
+  const handleDelete = (id) => {
+    const notesDel = [...notes];
+    const index = notesDel.findIndex((note) => note.id === id);
+    notesDel.splice(index, 1);
+    setNotes(notesDel);
   };
 
-  handleDelete = (id) => {
-    const notes = [...this.state.notes];
-    const index = notes.findIndex((note) => note.id === id);
-    notes.splice(index, 1);
-    this.setState({ notes });
+  const handleAdd = (note) => {
+    const notesAdd = [...notes];
+    notesAdd.push(note);
+    setNotes(notesAdd);
   };
 
-  handleAdd = (note) => {
-    const notes = [...this.state.notes];
-    notes.push(note);
-    this.setState({ notes });
-  };
+  return (
+    <div>
+      <h1>Bloc notes</h1>
+      <NoteForm onAdd={handleAdd} />
+      <ul>
+        {notes.map((note) => (
+          <Note note={note} key={note.id} onDelete={handleDelete} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-  render() {
-    const notes = this.state.notes.map((note) => (
-      <Note note={note} key={note.id} onDelete={this.handleDelete} />
-    ));
-
-    return (
-      <div>
-        <h1>Bloc notes</h1>
-        <NoteForm onAdd={this.handleAdd} />
-        <ul>{notes}</ul>
-      </div>
-    );
-  }
-}
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);

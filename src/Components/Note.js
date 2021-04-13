@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Note = ({ note, onDelete }) => (
   <li key={note.id}>
