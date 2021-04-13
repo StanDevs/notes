@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Note from "./Components/Note";
 import NoteForm from "./Components/NoteForm";
+import "./App.css";
 
 class App extends React.Component {
   state = {
