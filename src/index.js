@@ -11,8 +11,6 @@ class App extends React.Component {
       { id: 2, title: "titre 2", text: "texte 2" },
       { id: 3, title: "titre 3", text: "texte 3" },
     ],
-    titleInput: "",
-    textInput: "",
   };
 
   handleDelete = (id) => {
