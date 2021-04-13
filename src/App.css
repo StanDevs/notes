@@ -1,3 +1,91 @@
 * {
   font-family: sans-serif;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: min(10vh, 10vw);
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.notesListe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin-top: 100px;
+}
+
+.note {
+  border-radius: 15px;
+  list-style: none;
+  box-shadow: 0 0 6px #f0f0f0;
+  padding: 20px 25px;
+}
+
+.noteTitle {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+}
+
+.noteDesc {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.buttonOutline {
+  appearance: none;
+  color: #ea6863;
+  border: #ea6863 2px solid;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 10px;
+  background-color: inherit;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.buttonOutline:hover {
+  background-color: #ea6863;
+  color: white;
+}
+
+.buttonOutline i {
+  margin-right: 10px;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.input {
+  border: #f0f0f0 2px solid;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+textarea.input {
+  resize: none;
+  height: 75px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+form *:nth-child(odd) {
+  margin-top: 20px;
 }

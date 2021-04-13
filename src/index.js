@@ -38,9 +38,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Bloc notes</h1>
+      <h1>Notes</h1>
       <NoteForm onAdd={handleAdd} />
-      <ul>
+      <ul className="notesListe">
         {notes.map((note) => (
           <Note note={note} key={note.id} onDelete={handleDelete} />
         ))}

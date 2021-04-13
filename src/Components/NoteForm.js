@@ -26,22 +26,26 @@ const NoteForm = (props) => {
 
   return (
     <form onSubmit={onAdd}>
-      <label htmlFor="inputTitle">Le titre :</label>
+      <label htmlFor="inputTitle">Titre</label>
       <input
         type="text"
         placeholder="Ajouter un titre"
+        className="input"
         id="inputTitle"
         value={titleInput}
         onChange={handleChangeTitle}
       />
-      <label htmlFor="inputText">Le texte :</label>
+      <label htmlFor="inputText">Texte</label>
       <textarea
+        className="input"
         id="inputText"
         placeholder="Ajouter un texte"
         value={textInput}
         onChange={handleChangeText}
       />
-      <button>Ajouter</button>
+      <button className="buttonOutline">
+        <i className="bi bi-plus-square"></i>Ajouter
+      </button>
     </form>
   );
 };
